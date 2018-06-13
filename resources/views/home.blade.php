@@ -19,7 +19,7 @@
         </thead>
     @foreach ($posts as $post)
         <tr>
-            <td>{{ $post->titl }}</td>
+            <td>{{ $post->title }}</td>
             <td>{{ $post->body }}</td>
             <td>{{ $post->user }}</td>
             <td>{{ $post->created_at }}</td>
