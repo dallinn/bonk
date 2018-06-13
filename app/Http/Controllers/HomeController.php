@@ -34,13 +34,14 @@ class HomeController extends Controller
             'body' => 'required|min:5'
         ]);
 
-        $data = [
-            'title' => $request->title,
-            'body'  => $request->body,
-            'user_id'  => 1
-        ];
+        $post = new Post([
+            'title'   => $request->title,
+            'body'    => $request->body,
+        ]);
 
-        DB::table('posts')->insert($data);
+        $post->user_id = 1; //using this for this test, would normally access the auth user
+
+        $post->save();
 
         return 'Success';
     }
