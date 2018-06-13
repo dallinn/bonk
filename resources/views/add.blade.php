@@ -47,7 +47,7 @@ $(document).ready(function(){
         if (title.length < 5 || body.length < 5) {
             alert('Title and Body require at least 5 characters');
         } else {
-            @if($post)
+            @if(isset($post))
                 $.post('/api/editPost/{{ $post->id }}', {
                     title: title,
                     body: body
