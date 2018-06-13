@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 
+use App\Post;
+
 /**
  * Handles logic for the homepage.
  * @package App\Http\Controllers
@@ -15,7 +17,7 @@ class HomeController extends Controller
 
     public function testHome()
     {
-        $data['posts'] = DB::table('posts')->get();
+        $data['posts'] = Post::all();
         return view('home', $data);
     }
 
@@ -30,13 +32,11 @@ class HomeController extends Controller
         $data = [
             'topic' => $request->title,
             'body'  => $request->body,
-            'user'  => 1
+            'user_id'  => 1
         ];
 
         DB::table('posts')->insert($data);
 
         return 'Success';
     }
-
-
 }

@@ -16,7 +16,7 @@ class PostsTableSeeder extends Seeder
                 'id'         => 1,
                 'title'      => 'First Post',
                 'body'       => 'Lots of text here',
-                'user'       => 1,
+                'user_id'    => 1,
                 'created_at' => '2017-09-01 05:00:00'
             ]);
         DB::table('posts')->insert(
@@ -24,7 +24,7 @@ class PostsTableSeeder extends Seeder
                 'id'         => 2,
                 'title'      => 'Second Post',
                 'body'       => 'Lots of other text here',
-                'user'       => 1,
+                'user_id'    => 1,
                 'created_at' => '2017-09-05 10:00:00'
             ]);
         DB::table('posts')->insert(
@@ -32,7 +32,7 @@ class PostsTableSeeder extends Seeder
                 'id'         => 3,
                 'title'      => 'Other Post',
                 'body'       => 'Some text here',
-                'user'       => 1,
+                'user_id'    => 1,
                 'created_at' => '2017-09-03 10:00:00'
             ]
         );
