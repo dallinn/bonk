@@ -40,12 +40,21 @@
 $(document).ready(function(){
     $('#postForm').on('submit', function(e){
         e.preventDefault();
+
         var title = $('#title').val();
         var body = $('#body').val();
+
         if (title.length < 5 || body.length < 5) {
             alert('Title and Body require at least 5 characters');
         } else {
-            this.submit();
+            //this.submit();
+            $.post('/api/addPost', {
+                title: title,
+                body: body
+            }).done(function(data) {
+                alert('Post Created');
+                $('#postForm').trigger("reset");
+            });
         }
     });
 });
