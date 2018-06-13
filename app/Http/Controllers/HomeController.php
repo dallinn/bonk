@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function testHome()
     {
-        $data['posts'] = Post::all();
+        $data['posts'] = Post::orderBy('created_at', 'desc')->get();
         return view('home', $data);
     }
 
