@@ -17,4 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('addPost', 'HomeController@addPost');
+Route::post('addPost',      'HomeController@addPost');
+Route::post('editPost/{id}', 'HomeController@editPost');
+// if there were more actions desired, i'd use Route::resource

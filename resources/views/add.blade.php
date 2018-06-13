@@ -24,10 +24,10 @@
     <form id="postForm" action="/addPost" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
-            <input placeholder="Enter title here" type="text" id="title" name="title" class="form-control" required />
+            <input placeholder="Enter title here" type="text" id="title" name="title" class="form-control" value="{{ $post->title or '' }}" required />
         </div>
         <div class="form-group">
-            <textarea name="body" id="body" class="form-control" required></textarea>
+            <textarea name="body" id="body" class="form-control" required>{{ $post->body or '' }}</textarea>
         </div>
         <input type="submit" class="btn btn-default" value="Submit" />
     </form>
@@ -47,14 +47,22 @@ $(document).ready(function(){
         if (title.length < 5 || body.length < 5) {
             alert('Title and Body require at least 5 characters');
         } else {
-            //this.submit();
-            $.post('/api/addPost', {
-                title: title,
-                body: body
-            }).done(function(data) {
-                alert('Post Created');
-                $('#postForm').trigger("reset");
-            });
+            @if($post)
+                $.post('/api/editPost/{{ $post->id }}', {
+                    title: title,
+                    body: body
+                }).done(function(data) {
+                    alert('Post Edited');
+                });
+            @else
+                $.post('/api/addPost', {
+                    title: title,
+                    body: body
+                }).done(function(data) {
+                    alert('Post Created');
+                    $('#postForm').trigger("reset");
+                });
+            @endif
         }
     });
 });

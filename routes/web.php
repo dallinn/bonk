@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('testHome', 'HomeController@testHome');
-Route::get('add', 'HomeController@add');
-Route::post('addPost', 'HomeController@addPost');
+Route::get('testHome',  'HomeController@testHome');
+Route::get('add',       'HomeController@add');
+Route::get('edit/{id}', 'HomeController@edit');

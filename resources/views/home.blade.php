@@ -10,6 +10,7 @@
 
 <div class="container">
     @yield('content')
+
     <table class="table">
         <thead>
             <th>Title</th>
@@ -23,10 +24,10 @@
             <td>{{ $post->body }}</td>
             <td>{{ $post->user->name }}</td>
             <td>{{ $post->created_at }}</td>
+            <td><a class="btn btn-info btn-sm" href="/edit/{{ $post->id }}">Edit</a></td>S
         </tr>
     @endforeach
     </table>
-
 
     @include('partials._footer')
 
