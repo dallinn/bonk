@@ -1,0 +1,6 @@
+alias art="php artisan"
+alias tink="art tinker"
+alias codecept="composer exec codecept"
+alias nano="sudo nano"
+alias denver="sudo ln -sf /usr/share/zoneinfo/America/Denver /etc/localtime"
+alias utc="sudo ln -sf /usr/share/zoneinfo/UTC /etc/localtime"
