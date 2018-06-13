@@ -29,8 +29,13 @@ class HomeController extends Controller
 
     public function addPost(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:5',
+            'body' => 'required|min:5'
+        ]);
+
         $data = [
-            'topic' => $request->title,
+            'title' => $request->title,
             'body'  => $request->body,
             'user_id'  => 1
         ];
